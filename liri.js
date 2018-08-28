@@ -27,3 +27,12 @@ function spotify(inputs) {
 	        console.log("Album: " + songInfo[0].album.name);
 	});
 }
+var keys = require("./keys.js");
+var request = require('request');
+var Twitter = require('twitter');
+var Spotify = require('node-spotify-api');
+var fs = require('fs');
+var client = new Twitter(keys.twitterKeys);
+var input = process.argv;
+var action = input[2];
+var inputs = input[3];
