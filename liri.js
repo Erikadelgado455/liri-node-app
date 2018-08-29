@@ -55,3 +55,21 @@ function movie(inputs) {
 		}
 	});
 };
+function doit() {
+	fs.readFile('random.txt', "utf8", function(error, data){
+		if (error) {
+    		return console.log(error);
+  		}
+		var dataArr = data.split(",");
+		if (dataArr[0] === "spotify-this-song") {
+			var songcheck = dataArr[1].slice(1, -1);
+			spotify(songcheck);
+		} else if (dataArr[0] === "my-tweets") {
+			var tweetname = dataArr[1].slice(1, -1);
+			twitter(tweetname);
+		} else if(dataArr[0] === "movie-this") {
+			var movie_name = dataArr[1].slice(1, -1);
+			movie(movie_name);
+		} 
+  	});
+};
